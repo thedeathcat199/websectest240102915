@@ -1,15 +1,19 @@
+<x-app-layout>
+
 <h2>Books</h2>
 
+<a href="/books/create">+ Add Book</a>
+
 @foreach($books as $book)
-    <p>
-        {{ $book->title }} - {{ $book->author }} ({{ $book->copies }})
+    <div class="card">
+        <strong>{{ $book->title }}</strong><br>
+        Author: {{ $book->author }}<br>
+        Copies: {{ $book->copies }}<br><br>
 
         <a href="/books/edit/{{ $book->id }}">Edit</a>
         <a href="/books/delete/{{ $book->id }}">Delete</a>
-
-        <!-- BORROW BUTTON (THIS IS THE NEW PART) -->
         <a href="/borrow/{{ $book->id }}">Borrow</a>
-    </p>
+    </div>
 @endforeach
 
-<a href="/books/create">Add Book</a>
+</x-app-layout>

@@ -43,10 +43,10 @@ Route::middleware('auth')->group(function () {
 */
 Route::middleware(['auth', 'role:admin'])->group(function () {
 
-    Route::get('/admin', function () {
-        return "Admin only";
-    });
+    // 🔥 UPDATED ADMIN DASHBOARD
+    Route::get('/admin', [AdminController::class, 'dashboard']);
 
+    // Librarian creation
     Route::get('/create-librarian', [AdminController::class, 'createLibrarianForm']);
     Route::post('/create-librarian', [AdminController::class, 'storeLibrarian']);
 
